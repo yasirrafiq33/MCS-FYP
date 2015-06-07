@@ -1,0 +1,133 @@
+﻿@model IEnumerable<expe.Models.Doctor>
+@{
+    ViewBag.Title = "SearchDoctor";
+}
+
+
+
+
+
+
+    <html>
+        
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Ruluko' rel='stylesheet' type='text/css'>
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!--slider-->
+    <link href="~/Content/camera.css" rel="stylesheet" type="text/css" media="all" />
+    
+    <script type='text/javascript' src='~/Scripts/jquery.min.js'></script>
+    <script type='text/javascript' src='~/Scripts/jquery.easing.1.3.js'></script> 
+    <script type='text/javascript' src='~/Scripts/camera.min.js'></script> 
+   
+    <script>
+     
+        jQuery(function () {
+
+            jQuery('#camera_wrap_1').camera({
+                thumbnails: true
+            });
+
+            jQuery('#camera_wrap_2').camera({
+                height: '400px',
+                loader: 'bar',
+                pagination: false,
+                thumbnails: true
+            });
+        });
+	</script>
+    <style>
+        p {color:yellow}
+        </style>
+</head>
+<body>
+     @Styles.Render("~/Content/camera","~/Content/style")
+     @Scripts.Render("~/bundles/camera.min","~/bundles/jquery.easing.1.3","~/bundles/jquery.min")
+
+    <div class="wrap">
+    <div class="header">
+		<div class="logo">
+		   
+                   <li><p><font size="6" color="Yellow">VABDS</font></p></li>
+
+		 </div>
+		
+	 <div class="clear"></div>
+</div>
+<div class="menu">
+	 	 <ul class="nav">
+        <li class="active">@Html.ActionLink("Home","UserHome","User")</li>
+  		<li>@Html.ActionLink("Search","SearchDoctor","User") </li>
+  	    <li>@Html.ActionLink("Register","RegisterDonor","User")</li>
+  		<li>@Html.ActionLink("Notification","Notification","User")</li>
+  		<div class="clear"></div>
+      </ul>
+      <div class="social-icons">
+		<ul>
+		     <li><a class="facebook" href="#" target="_blank"> </a></li>
+		     <li><a class="twitter" href="#" target="_blank"></a></li>
+		     <li><a class="googleplus" href="#" target="_blank"></a></li>
+		     <li><a class="pinterest" href="#" target="_blank"></a></li>
+		     <li><a class="dribbble" href="#" target="_blank"></a></li>
+		     <li><a class="vimeo" href="#" target="_blank"></a></li>
+	   </ul>
+	 </div>
+	  <div class="clear"></div>
+	 </div>
+    <!--main-->
+<div class="main">
+<div class="content1">
+		<div class="about-data">
+			<h2>Doctors</h2>
+			<div class="about-img">
+				<a href="details.html"><img src="~/images/pic3.jpg" alt=""></a>
+			</div>
+			<div class="about-desc">
+				<h4>Lorem Ipsum is simply dummy text of the printing unknown printer</h4>
+				<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum. </p>
+			</div>
+			<div class="clear"></div>
+				<div class="rd_more">
+					<a href="contact.html"><button class="btn btn-3 btn-3e icon-arrow-right">Search Doctors</button></a>
+				</div>						
+		</div>
+		<div class="sidebar">
+			<h2>Rated Doctors</h2>
+            @if(Model !=null)
+            {
+             @foreach(var i in Model)
+          {
+			<div class="blog_posts">
+			      
+				  <div class="blog_desc">
+						<div class="blog_heading">
+							<p><span> &nbsp  @i.Dname</span></p>
+						 </div>
+						<p>The Doctor have done @i.DQualification . You can find this doctor at @i.Address</p>
+					  </div>
+					 <div class="clear"></div>	
+				</div>	
+             }
+            }
+            else
+            {
+                <p>No Such Doctor found.</p>
+
+            }
+						       					
+	</div>
+	<div class="clear"></div>
+</div>
+</div>
+<div class="ftr-bg">
+		<div class="footer1">
+		<div class="copy">
+			<p class="w3-link">&nbsp; <a href="http://w3layouts.com/"> VABDS</a></p>
+		</div>
+		<div class="clear"></div>	
+	</div>
+</div>
+</div>
+</body>
+</html>

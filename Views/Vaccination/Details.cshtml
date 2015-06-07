@@ -1,0 +1,50 @@
+﻿@model expe.Models.Vaccination
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Vaccination</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VDesc)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VDesc)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.minAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.minAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.maxAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.maxAge)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

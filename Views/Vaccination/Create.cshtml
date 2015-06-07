@@ -1,0 +1,67 @@
+﻿@model expe.Models.Vaccination
+
+@{
+    ViewBag.Title = "Add Vaccination";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Vaccination</legend>
+
+       
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VName)
+            @Html.ValidationMessageFor(model => model.VName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VDesc)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VDesc)
+            @Html.ValidationMessageFor(model => model.VDesc)
+        </div>
+
+        <div class="editor-label">
+            Age
+        </div>
+       @* <div class="editor-field">
+            @Html.EditorFor(model => model.AgeofChild)
+            @Html.ValidationMessageFor(model => model.AgeofChild)
+        </div>
+
+        <div class="editor-label">
+            Age Unit
+        </div>
+        <div class="editor-field">
+               @Html.DropDownListFor(x => x.AgeUnit, new SelectListItem[]{
+                                            new SelectListItem() {Text = "Days", Value="Days"},
+                                            new SelectListItem() {Text = "Months", Value="Months"},
+                                            new SelectListItem() {Text = "Years", Value="Years"}
+                                            
+                                            
+                               })
+           
+        </div>*@
+
+        <p>
+            <input type="submit" value="Add" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

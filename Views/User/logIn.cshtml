@@ -1,0 +1,186 @@
+﻿@model expe.Models.User
+<html>
+<head>
+<title>VAccination Alerts And Blood Donation System</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href='http://fonts.googleapis.com/css?family=Ruluko' rel='stylesheet' type='text/css'>
+<link href="~/Content/style.css" rel="stylesheet" type="text/css" media="all" />
+<!--slider-->
+<link href="~/Content/camera.css" rel="stylesheet" type="text/css" media="all" />
+    
+<script type='text/javascript' src='~/Scripts/jquery.min.js'></script>
+<script type='text/javascript' src='~/Scripts/jquery.easing.1.3.js'></script> 
+<script type='text/javascript' src='~/Scripts/camera.min.js'></script> 
+   
+    <script>
+		jQuery(function(){
+			
+			jQuery('#camera_wrap_1').camera({
+				thumbnails: true
+			});
+
+			jQuery('#camera_wrap_2').camera({
+				height: '400px',
+				loader: 'bar',
+				pagination: false,
+				thumbnails: true
+			});
+		});
+	</script>
+    
+   
+   
+</head>
+    <style>
+p {color:yellow}
+</style>
+<body>
+    @Styles.Render("~/Content/camera", "~/Content/style")
+     @Scripts.Render("~/bundles/camera.min", "~/bundles/jquery.easing.1.3", "~/bundles/jquery.min")
+
+<div class="wrap">
+<div class="menu">
+	 	 <ul class="nav">
+       
+                   <li><p><font size="6" color="Yellow">VABDS</font></p></li>
+
+                  </ul>
+      <div class="" align = "right">
+		<ul>
+            @using (Html.BeginForm("LogIn", "User", FormMethod.Post))
+            {    
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                if (@ViewBag.Message != null)
+                {
+                    
+                   @ViewBag.Message   
+                }
+
+		    <table> 
+                     <tr>
+                   <td> <li><a class="" ><font size="2" color="White">@Html.LabelFor(a => a.Email) </li></td>  &nbsp &nbsp
+		     <td> <li><a class="" ><font size="2" color="White"> @Html.LabelFor(a => a.Password)  </li></td>
+                    </tr>
+		     <tr>
+                   <td> <li><span> @Html.TextBoxFor(a => a.Email)
+                                    @Html.ValidationMessageFor(a => a.Email)</span> &nbsp  &nbsp &nbsp &nbsp </li></td>  
+		
+                     <td> <li><span>@Html.TextBoxFor(a => a.Password)
+                                    @Html.ValidationMessageFor(a => a.Password)</span> </li></td>
+                      <td> <li><span><input type="submit" value="Log in"></span>
+						  </li><br><br></td>
+                    </tr>
+                    <br><br>
+
+	   	   </table>
+            }
+                 </ul>
+	 </div>
+	  <div class="clear"></div>
+	 </div>
+<!--main-->
+<div class="main" style="background-color:white">
+<div class="content" style="background-color:white">
+<div class="contact"  style="background-color:white">				
+				<div class="col span_1_of_3">
+					<div align = "right">
+                                         <img src="~/images/f.jpg" height = "400">
+			 
+			    	 				</div>
+      			<div align  = "left">
+				     	<span><input type="submit" value="Get VABDS Mobile"></span>
+
+				   </div>
+				</div>				
+				<div class="col span_2_of_3">
+				  <div class="contact-form">
+				  	<h3>Sign Up !</h3>
+			@using (Html.BeginForm("SignUp", "User", FormMethod.Post))
+   {
+                     @Html.AntiForgeryToken()
+                      @Html.ValidationSummary(true)
+       if (@ViewBag.Message != null)
+       {
+                    
+                        @ViewBag.Message   
+       }
+                    
+                    <div>
+						    	<span><label>Name</label></span>
+						    	<span>@Html.TextBoxFor(a => a.Uname)</span>
+				    </div>
+                    <div>
+						    	           <span><label>Last Name</label></span>
+						    	            <span><input name="userName" type="text" class="textbox"></span>
+				</div>
+                    <div>
+						    	<span><label>E-MAIL</label></span>
+						    	<span>@Html.TextBoxFor(a => a.Email)</span>
+                                <p>@Html.ValidationMessageFor(a => a.Email)</p>
+						    </div>
+                            <div>
+						     	<span><label>Password</label></span>
+						    	<span>@Html.TextBoxFor(a => a.Password)</span>
+						    </div>
+                                                      <div>
+						     	<span><label>Re-Enter Password</label></span>
+						    	<span><input name="userPhone" type="text" class="textbox"></span>
+						    </div>
+                                 <div>
+						     	<span><label>Phone Number</label></span>
+						    	<span>
+                                    @Html.TextBoxFor(a=>a.PhoneNumber)
+						    	</span>
+						    </div>
+
+	                        <div>
+                                   <span><label>Country</label></span>
+                                                        
+						    	 @Html.TextBoxFor(x => x.Country)
+                             </div>
+       
+                            <div>
+                                      <span><label>City</label></span>
+                                                        
+						    	 @Html.TextBoxFor(x => x.City)
+                                </div>
+                               <div>
+                                      <span><label>Area</label></span>
+                                                        
+						    	 @Html.TextBoxFor(x => x.Area)
+                                </div>
+						   
+						    <div>
+                                                       <span><label>Gender</label></span>
+                                                        
+						    	 @Html.RadioButtonFor(x => x.Gender, "Male")Male<br>
+                                 @Html.RadioButtonFor(x => x.Gender, "Female")>Female
+                              </div>
+                            <div>
+						   		<span><input type="submit" value="Sign Up"></span>
+						  </div>
+                    
+   }
+                   
+            
+                         
+				    </div>
+  				</div>		
+  				<div class="clear"></div>			
+</div>
+</div>	
+</div>
+<div class="ftr-bg">
+		<div class="footer1">
+		<div class="copy">
+			<p class="w3-link">&nbsp; <a href="http://w3layouts.com/"> VABDS </a></p>
+		</div>
+		<div class="clear"></div>	
+	</div>
+</div>
+</div>
+    </div>
+</body>
+</html>

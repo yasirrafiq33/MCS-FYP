@@ -1,0 +1,67 @@
+﻿@model expe.Models.Vaccination
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Vaccination</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VId)
+            @Html.ValidationMessageFor(model => model.VId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VName)
+            @Html.ValidationMessageFor(model => model.VName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VDesc)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VDesc)
+            @Html.ValidationMessageFor(model => model.VDesc)
+        </div>
+
+      @*  <div class="editor-label">
+            @Html.LabelFor(model => model.minAge)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.minAge)
+            @Html.ValidationMessageFor(model => model.minAge)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.maxAge)
+        </div>*@
+        <div class="editor-field">
+            @Html.EditorFor(model => model.maxAge)
+            @Html.ValidationMessageFor(model => model.maxAge)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

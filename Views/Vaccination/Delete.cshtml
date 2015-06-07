@@ -1,0 +1,53 @@
+﻿@model expe.Models.Vaccination
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Vaccination</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VDesc)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VDesc)
+    </div>
+
+    @*<div class="display-label">
+         @Html.DisplayNameFor(model => model.minAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.minAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.maxAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.maxAge)
+    </div>*@
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

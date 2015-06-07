@@ -1,0 +1,65 @@
+﻿@model IEnumerable<expe.Models.Doctor>
+
+@{
+    ViewBag.Title = "All Doctors";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Add New Doctor", "Create")
+</p>
+<table>
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Dname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DQualification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SitType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stars)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.specialization)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Dname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DQualification)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SitType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stars)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.specialization)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

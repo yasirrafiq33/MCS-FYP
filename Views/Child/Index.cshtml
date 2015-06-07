@@ -1,0 +1,185 @@
+﻿@model IEnumerable<expe.Models.Child>
+
+@{
+    ViewBag.Title = "Child Information|VABDS";
+}
+
+
+
+
+
+    <html>
+        
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Ruluko' rel='stylesheet' type='text/css'>
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!--slider-->
+    <link href="~/Content/camera.css" rel="stylesheet" type="text/css" media="all" />
+    
+    <script type='text/javascript' src='~/Scripts/jquery.min.js'></script>
+    <script type='text/javascript' src='~/Scripts/jquery.easing.1.3.js'></script> 
+    <script type='text/javascript' src='~/Scripts/camera.min.js'></script> 
+   
+    <script>
+     
+        jQuery(function () {
+
+            jQuery('#camera_wrap_1').camera({
+                thumbnails: true
+            });
+
+            jQuery('#camera_wrap_2').camera({
+                height: '400px',
+                loader: 'bar',
+                pagination: false,
+                thumbnails: true
+            });
+        });
+	</script>
+    <style>
+
+        #customers {
+                font-family:Arial;
+                width: 60%;
+                border-collapse: collapse;
+            }
+
+        #customers td, #customers th {
+    font-size: 1em;
+    border: 1px solid #000000;
+    padding: 3px 7px 2px 7px;
+}
+        #customers th {
+    font-size: 1.1em;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #FFFF00;
+    color: #ffffff;
+}
+        #im {
+   margin-left: auto;
+   margin-right: auto;
+   width: NNNpx;
+
+   /* NOTE: Only works for non-floated block elements */
+   display: block;
+   float: none;
+}
+        p {color:yellow}
+        </style>
+</head>
+<body>
+     @Styles.Render("~/Content/camera","~/Content/style")
+     @Scripts.Render("~/bundles/camera.min","~/bundles/jquery.easing.1.3","~/bundles/jquery.min")
+
+    <div class="wrap">
+    <div class="header">
+		<div class="logo">
+		   
+                   <li><p><font size="6" color="Yellow">VABDS</font></p></li>
+
+		 </div>
+		
+	 <div class="clear"></div>
+</div>
+<div class="menu">
+	 	 	 <ul class="nav">
+        <li class="active">@Html.ActionLink(@Session["name"].ToString().ToUpper(),"UserHome","User")</li>
+  		<li>@Html.ActionLink("Search","SearchDoctor","User") </li>
+  	    <li>@Html.ActionLink("Register","RegisterDonor","User")</li>
+  		<li>@Html.ActionLink("Notification","Notification","User")</li>
+        <li>@Html.ActionLink("Log Out","LogOut","User")</li>
+  		<div class="clear"></div>
+      </ul>
+      <div class="social-icons">
+		<ul>
+		     <li><a class="facebook" href="#" target="_blank"> </a></li>
+		     <li><a class="twitter" href="#" target="_blank"></a></li>
+		     <li><a class="googleplus" href="#" target="_blank"></a></li>
+		     <li><a class="pinterest" href="#" target="_blank"></a></li>
+		     <li><a class="dribbble" href="#" target="_blank"></a></li>
+		     <li><a class="vimeo" href="#" target="_blank"></a></li>
+	   </ul>
+	 </div>
+	  <div class="clear"></div>
+	 </div>
+        <div class="main1">
+           
+					
+				
+            @if(Model!= null)
+            {
+                
+                <p>
+    @Html.ActionLink("Add Information of new Child", "Create")
+</p>
+                <div id="im" align="left">
+<table  id="customers">
+    <tr>
+        
+        <th>
+            Name
+        </th>
+        <th>
+           Parent Neme
+        </th>
+        <th>
+            Date Of Birth
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.CName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Uname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.CId  }) |
+            @Html.ActionLink("Vaccination Taken Details", "Details", new {  id=item.CId  }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.CId  })
+        </td>
+    </tr>
+            }
+
+        </table>
+                    </div>
+                
+                
+            }
+
+                    
+            
+            else
+            {
+                <p>You don't have any child register here</p>
+            }
+    
+  <div class="ftr-bg">
+		<div class="footer1">
+		<div class="copy">
+			<p class="w3-link">&nbsp; <a href=""> VABDS </a></p>
+		</div>
+		<div class="clear"></div>	
+	</div>
+</div>
+        </div>
+
+
+</body>
+        </html>

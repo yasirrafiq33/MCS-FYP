@@ -1,0 +1,57 @@
+﻿@model IEnumerable<expe.Models.Vaccination>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VDesc)
+        </th>
+      @*  <th>
+            @Html.DisplayNameFor(model => model.minAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.maxAge)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.minAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.maxAge)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,118 @@
+﻿@*<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Ruluko' rel='stylesheet' type='text/css'>
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!--slider-->
+    <link href="~/Content/camera.css" rel="stylesheet" type="text/css" media="all" />
+    
+    <script type='text/javascript' src='~/Scripts/jquery.min.js'></script>
+    <script type='text/javascript' src='~/Scripts/jquery.easing.1.3.js'></script> 
+    <script type='text/javascript' src='~/Scripts/camera.min.js'></script> 
+   
+    <script>
+     
+        jQuery(function () {
+
+            jQuery('#camera_wrap_1').camera({
+                thumbnails: true
+            });
+
+            jQuery('#camera_wrap_2').camera({
+                height: '400px',
+                loader: 'bar',
+                pagination: false,
+                thumbnails: true
+            });
+        });
+	</script>
+    <style>
+        p {color:yellow}
+        </style>
+</head>
+<body>*@
+@*     @Styles.Render("~/Content/camera","~/Content/style")
+     @Scripts.Render("~/bundles/camera.min","~/bundles/jquery.easing.1.3","~/bundles/jquery.min")
+
+    <div class="wrap">
+    <div class="header">
+		<div class="logo">
+		   
+                   <li><p><font size="6" color="Yellow">VABDS</font></p></li>
+
+		 </div>
+		
+	 <div class="clear"></div>
+</div>
+<div class="menu">
+	 	 <ul class="nav">
+        <li class="active">@Html.ActionLink("Home","UserHome","User")</li>
+  		<li><a href="about.html">@Html.ActionLink("Search","SearchDoctor","User") </a></li>
+  	    <li><a href="Donor.html">@Html.ActionLink("Register","RegisterDonor","User")</a></li>
+  		<li><a href="contact.html">@Html.ActionLink("Notification","Notification","User")</a></li>
+  		<div class="clear"></div>
+      </ul>
+      <div class="social-icons">
+		<ul>
+		     <li><a class="facebook" href="#" target="_blank"> </a></li>
+		     <li><a class="twitter" href="#" target="_blank"></a></li>
+		     <li><a class="googleplus" href="#" target="_blank"></a></li>
+		     <li><a class="pinterest" href="#" target="_blank"></a></li>
+		     <li><a class="dribbble" href="#" target="_blank"></a></li>
+		     <li><a class="vimeo" href="#" target="_blank"></a></li>
+	   </ul>
+	 </div>
+	  <div class="clear"></div>
+	 </div>*@
+
+    @*@RenderBody()*@
+        
+@*<div class="ftr-bg">
+		<div class="footer1">
+		<div class="copy">
+			<p class="w3-link">&nbsp; <a href=""> VABDS </a></p>
+		</div>
+		<div class="clear"></div>	
+	</div>
+</div>
+</div>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)*@
+@*</body>
+</html>*@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+
+
+    
+   
+   
+
+
+
+   
+
+

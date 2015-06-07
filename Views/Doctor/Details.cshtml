@@ -1,0 +1,64 @@
+﻿@model expe.Models.Doctor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Doctor</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DcId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DcId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Dname)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Dname)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DQualification)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DQualification)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SitType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SitType)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Stars)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Stars)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.specialization)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.specialization)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

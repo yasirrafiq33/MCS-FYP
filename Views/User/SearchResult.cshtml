@@ -1,0 +1,29 @@
+﻿@model IEnumerable<expe.Models.Doctor>
+
+@{
+    ViewBag.Title = "SearchResult|VABDS";
+    
+    }
+
+
+<table>
+    <tr><td>Doctor Name</td>
+    <td>Doctor Qualificaton</d>
+    <td>Doctor Adress</td>
+    <td>Doctor Sit Type</td>
+    <td>Doctor Specialization</td></tr>
+@foreach (var i in Model)
+
+{
+    <tr><td>@i.Dname</td>
+        <td>@i.DQualification</td>
+        <td>@i.Address</td>
+        <td>@i.SitType</td>
+        <td>@i.specialization</td>
+
+    </tr>
+    
+     
+}
+
+    </table>
